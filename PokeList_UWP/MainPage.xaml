@@ -1,0 +1,21 @@
+﻿<Page
+    x:Class="PokeList_UWP.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:PokeList_UWP"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Loaded="Page_Loaded">
+
+    <Page.Resources>
+        <SolidColorBrush Color="#FF871c1c" x:Key="appColor"/>
+        <SolidColorBrush Color="#FF641818" x:Key="appColorDark"/>
+        <SolidColorBrush Color="#FF461212" x:Key="appColorHover"/>
+        <SolidColorBrush Color="#FF2E0C0C" x:Key="appColorPressed"/>
+    </Page.Resources>
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    </Grid>
+</Page>

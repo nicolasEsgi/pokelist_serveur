@@ -1,0 +1,88 @@
+﻿<Page
+    x:Class="PokeList_UWP.FeaturePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:PokeList_UWP"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Loaded="Page_Loaded">
+
+    <RelativePanel>
+        <!--<Image
+            RelativePanel.AlignTopWithPanel="True"
+            RelativePanel.AlignBottomWithPanel="True" 
+            RelativePanel.AlignLeftWithPanel="True"
+            RelativePanel.AlignRightWithPanel="True"
+            Source="{x:Bind currentPokemon.bgImageSource}"
+            Stretch="UniformToFill"/>-->
+        <Image Width="256"
+               Height="256"
+               Source="{x:Bind currentPokemon.imageSource}"
+               RelativePanel.AlignHorizontalCenterWithPanel="True"
+               Margin="0 50 0 0"/>
+        <ScrollViewer RelativePanel.AlignLeftWithPanel="True"
+                      RelativePanel.AlignRightWithPanel="True"
+                      RelativePanel.AlignBottomWithPanel="True"
+                      RelativePanel.AlignTopWithPanel="True">
+            <RelativePanel Margin="10 310 10 10"
+                           Padding="15"
+                           CornerRadius="10,10,10,10"
+                           Background="#B2C8C8C8">
+                <TextBlock Text="{x:Bind currentPokemon.name}"
+                           Name="pokemonName"
+                           FontSize="30"
+                           RelativePanel.AlignHorizontalCenterWithPanel="True"/>
+                <StackPanel Orientation="Vertical"
+                            Name="descriptionBlock"
+                            RelativePanel.Below="pokemonName">
+                    <TextBlock Text="Description : "
+                               Name="descriptionLabel"
+                               FontSize="18"
+                               Margin="5"/>
+                    <TextBlock Text="{x:Bind currentPokemon.classification}"
+                               Name="pokemonDescription" 
+                               Margin="5"
+                               FontSize="18"
+                               TextWrapping="Wrap"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal"
+                            Name="typesBlock"
+                            RelativePanel.Below="descriptionBlock">
+                    <TextBlock Text="Type(s) : "
+                               Name="typeLabel"
+                               FontSize="18"
+                               Margin="5"/>
+                    <TextBlock Text="{x:Bind currentPokemon.typesStr}"
+                               Name="pokemonTypes" 
+                               Margin="5"
+                               FontSize="18"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal"
+                            Name="weightBlock"
+                            RelativePanel.Below="typesBlock">
+                    <TextBlock Text="Weight : "
+                               Name="weightLabel"
+                               FontSize="18"
+                               Margin="5"/>
+                    <TextBlock Text="{x:Bind currentPokemon.weight.maximum}"
+                               Name="pokemonWeight" 
+                               Margin="5"
+                               FontSize="18"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal"
+                            Name="heightBlock"
+                            RelativePanel.Below="weightBlock">
+                    <TextBlock Text="Height : "
+                               Name="heightLabel"
+                               FontSize="18"
+                               Margin="5"/>
+                    <TextBlock Text="{x:Bind currentPokemon.height.maximum}"
+                               Name="pokemonHeight" 
+                               Margin="5"
+                               FontSize="18"/>
+                </StackPanel>
+            </RelativePanel>
+        </ScrollViewer>
+    </RelativePanel>
+</Page>

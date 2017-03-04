@@ -1,0 +1,70 @@
+﻿<UserControl
+    x:Class="PokeList_UWP.PokemonListViewItemTemplate"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:PokeList_UWP"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Padding="0"
+    Margin="0"
+    d:DesignHeight="300"
+    d:DesignWidth="400">
+
+    <RelativePanel 
+        Name="rltPanel"
+        Height="220" 
+        Background="#19000000"
+        Margin="0"
+        Padding="0">
+        <Image 
+            Stretch="UniformToFill"
+            x:Name="typeBG"
+            Margin="0"
+            Source="{x:Bind Pokemon.bgImageSource}"
+            RelativePanel.AlignTopWithPanel="True"
+            RelativePanel.AlignLeftWithPanel="True"
+            RelativePanel.AlignRightWithPanel="True"
+            RelativePanel.AlignVerticalCenterWithPanel="True"/>
+        <Image 
+            Source="{x:Bind Pokemon.imageSource}" 
+            Stretch="Uniform"
+            RelativePanel.AlignTopWith="typeBG"
+            RelativePanel.AlignLeftWithPanel="True"
+            RelativePanel.AlignRightWithPanel="True"
+            RelativePanel.AlignVerticalCenterWithPanel="True"/>
+        <StackPanel Background="#B2871C1C"
+                    Padding="5"
+                    RelativePanel.AlignBottomWithPanel="True"
+                    RelativePanel.AlignLeftWithPanel="True"
+                    RelativePanel.AlignRightWithPanel="True">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Image
+                    Stretch="UniformToFill"
+                    Width="55" Height="55" 
+                    Source="{x:Bind Pokemon.spriteSource}" />
+                <StackPanel
+                    Grid.RowSpan="2"
+                    Grid.Column="1"
+                    Margin="8"
+                    Height="50">
+                    <TextBlock Name="libMat" Text="{x:Bind Pokemon.name}" FontSize="19"
+                               FontWeight="Bold" Foreground="White" 
+                               TextWrapping="WrapWholeWords"/>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Types :" Margin="0, 0, 5, 0" FontWeight="Normal" Foreground="White" />
+                        <TextBlock Name="lblTypes" Text="{x:Bind Pokemon.typesStr}"  FontWeight="Normal" Foreground="White" />
+                    </StackPanel>
+                </StackPanel>
+            </Grid>
+        </StackPanel>
+    </RelativePanel>
+</UserControl>
